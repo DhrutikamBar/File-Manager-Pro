@@ -16,17 +16,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.dhrutikambar.filemanagerpro.presentation.viewmodel.MainViewModel
 import com.dhrutikambar.filemanagerpro.ui.theme.FileManagerProTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+
             FileManagerProTheme {
                 Scaffold(topBar = {
                     TopBar()
                 }, modifier = Modifier.fillMaxSize()) { innerPadding ->
+
                     MainScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
@@ -48,6 +55,9 @@ fun TopBar() {
 
 @Composable
 fun MainScreen(modifier: Modifier) {
+    val viewModel: MainViewModel = hiltViewModel()
+
+
 
 }
 
