@@ -6,7 +6,6 @@ import java.io.File
 
 class FileRepositoryImpl : FileRepository {
     override suspend fun scanDirectory(path: String): FileModel {
-
         val file = File(path)
         return file.toFileModel()
     }
