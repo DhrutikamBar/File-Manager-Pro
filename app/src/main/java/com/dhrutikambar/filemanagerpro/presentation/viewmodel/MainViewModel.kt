@@ -18,23 +18,26 @@ class MainViewModel @Inject constructor(private val scanDirectoryUseCase: ScanDi
     ViewModel() {
     private val _fileViewModel = MutableLiveData<FileModel>()
     val fileModel: LiveData<FileModel> = _fileViewModel
+    private val rootPath = MutableLiveData<File>()
 
     init {
-
+        rootPath.value = Environment.getExternalStorageDirectory()
         scanRootDirectory()
     }
 
-   /* fun scanDirectory(path: String) {
-        viewModelScope.launch {
-            scanDirectoryUseCase.execute(path)
-        }
-    }*/
+    /* fun scanDirectory(path: String) {
+         viewModelScope.launch {
+             scanDirectoryUseCase.execute(path)
+         }
+     }*/
 
-    fun scanRootDirectory(){
-
+    fun scanRootDirectory() {
         viewModelScope.launch {
-            val root = Environment.getExternalStorageDirectory()
-            _fileViewModel.value = scanDirectoryUseCase.execute(root)
+
+            rootPath.value?.let {
+                _fileViewModel.value = scanDirectoryUseCase.execute(it)
+            }
+
         }
     }
 }
