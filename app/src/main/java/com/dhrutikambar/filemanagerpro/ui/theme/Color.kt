@@ -14,5 +14,6 @@ val Pink40 = Color(0xFF7D5260)
 
 val color1 = Color(0xFF7D3DFF)
 val color1Light = Color(0xFFF2EEF8)
+val color1LightForStorageProgress = Color(0xFFDCCCF3)
 val yellowLight = Color(0xFFE6DD94)
 

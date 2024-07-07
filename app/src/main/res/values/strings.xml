@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">File Manager Pro</string>
+    <string name="title_activity_request_permission">RequestPermissionActivity</string>
 </resources>
